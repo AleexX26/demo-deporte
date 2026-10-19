@@ -22,6 +22,8 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 - Dominio propio y alternativa por el panel de Cloudflare: ver `README.md`.
 
 ## Decisiones
+- 2026-10-19: más impacto y confianza a petición del cliente: efectos de agua (olas SVG `#ola` reutilizadas con `<use>`, burbujas, luz bajo el agua, ondas al mover/pulsar, títulos que se llenan de agua, corchera de progreso, contadores, marquesina) y sección `#por-que` solo con datos reales. Las animaciones en bucle se pausan fuera de pantalla (`.is-paused`) y no existen con prefers-reduced-motion.
+- 2026-10-19: la cabecera pasa a sólida en cuanto se hace scroll (>40px) para no solaparse con los accesos rápidos del hero.
 - 2026-10-19: publicado en GitHub (AleexX26/demo-deporte) y en Cloudflare Pages `demo-deporte` creado con `wrangler pages project create --force` (igual que demo-gym; el `--force` solo hace falta la primera vez).
 - 2026-10-19: la información y los textos son los de la web actual, copiados tal cual (petición expresa del cliente); solo cambia la presentación. Lo que no existe en ella va como `[COMPLETAR]` (precios, edades, cursos de adultos, NIF).
 - 2026-10-19: los horarios publicados son de la temporada 2022/2023, los entrenadores de 2024/2025 y la junta de 2022-2023; se muestran así, con aviso de confirmar.
@@ -31,6 +33,10 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 - 2026-10-19: paleta Abismo #0B2545, Azul #0063C6, Agua #1BB0E0, Espuma #EEF7FC y acento corchera #FF6A13 (con texto oscuro encima para pasar contraste).
 
 ## Patrones reutilizables
+- **Ola SVG**: `<path id="ola">` en el sprite del `<body>` + `<svg class="waves">`/`.wave-top` con 4 `<use>` desplazándose a distinta velocidad; el color sale de `currentColor` de la sección.
+- **Título que se llena de agua**: `background-clip: text` con un SVG data-URI (ola entre dos colores) cuyo `background-position` sube al aparecer (`water-fill`).
+- **Burbujas**: `[data-bubbles="N"]` y `main.js` crea N `.bubble` con variables CSS aleatorias.
+- **Onda al pulsar**: `.press-ripple` en `.btn`, `.chip` y `.gallery-item` (delegado en `pointerdown`).
 - **Bloques `✏️ EDITAR`**: comentarios en `index.html` que marcan los datos que más cambian.
 - **Tabla filtrable**: `table[data-filtrable]` + filas `tr[data-tipo]` + `.chip[data-filtro]`; en móvil pasa a tarjetas con `td[data-label]`.
 - **Marcador `.completar`**: resalta en amarillo los datos pendientes.

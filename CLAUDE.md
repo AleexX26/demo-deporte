@@ -16,9 +16,13 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 
 ## Comandos
 - Local: `npx http-server . -p 5182 -c-1` (o preview `deporte` en `../.claude/launch.json`).
-- Deploy: subir la carpeta en Cloudflare Pages (Upload assets) o conectar Git sin build y con salida `/`. Pasos y dominio en `README.md`.
+- Desplegar: `npx wrangler pages deploy . --project-name demo-deporte --branch main` (desde `Deporte/`).
+- Repo: https://github.com/AleexX26/demo-deporte (rama `main`). Web: https://demo-deporte.pages.dev
+- Ojo: el proyecto de Pages es de subida directa (wrangler), no está conectado a Git: un push NO publica; hay que repetir el `wrangler pages deploy`.
+- Dominio propio y alternativa por el panel de Cloudflare: ver `README.md`.
 
 ## Decisiones
+- 2026-10-19: publicado en GitHub (AleexX26/demo-deporte) y en Cloudflare Pages `demo-deporte` creado con `wrangler pages project create --force` (igual que demo-gym; el `--force` solo hace falta la primera vez).
 - 2026-10-19: la información y los textos son los de la web actual, copiados tal cual (petición expresa del cliente); solo cambia la presentación. Lo que no existe en ella va como `[COMPLETAR]` (precios, edades, cursos de adultos, NIF).
 - 2026-10-19: los horarios publicados son de la temporada 2022/2023, los entrenadores de 2024/2025 y la junta de 2022-2023; se muestran así, con aviso de confirmar.
 - 2026-10-19: no se incluyen las noticias de convocatorias pasadas, solo los logros (División de Honor, 1ª División Nacional, Nacional Máster de Invierno).

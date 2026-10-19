@@ -22,6 +22,7 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 - Dominio propio y alternativa por el panel de Cloudflare: ver `README.md`.
 
 ## Decisiones
+- 2026-10-19: SEO local orientado a «natación Leganés» (no a «Leganés»/«deporte Leganés», copados por Ayuntamiento y CD Leganés): title/description y H2 con palabra clave, sección `#preguntas` + `FAQPage` (texto idéntico al visible), `SportsClub` con las dos piscinas y coordenadas de OpenStreetMap (CP 28915 El Carrascal, 28914 Olimpia), NAP en el pie, barra «Llamar/Inscríbete» en móvil y `_redirects` 301 desde las URLs de Google Sites. Lo de fuera de la web (dominio, Google Business Profile, Search Console, enlaces) está en `SEO.md`.
 - 2026-10-19: más impacto y confianza a petición del cliente: efectos de agua (olas SVG `#ola` reutilizadas con `<use>`, burbujas, luz bajo el agua, ondas al mover/pulsar, títulos que se llenan de agua, corchera de progreso, contadores, marquesina) y sección `#por-que` solo con datos reales. Las animaciones en bucle se pausan fuera de pantalla (`.is-paused`) y no existen con prefers-reduced-motion.
 - 2026-10-19: la cabecera pasa a sólida en cuanto se hace scroll (>40px) para no solaparse con los accesos rápidos del hero.
 - 2026-10-19: publicado en GitHub (AleexX26/demo-deporte) y en Cloudflare Pages `demo-deporte` creado con `wrangler pages project create --force` (igual que demo-gym; el `--force` solo hace falta la primera vez).
@@ -37,6 +38,8 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 - **Título que se llena de agua**: `background-clip: text` con un SVG data-URI (ola entre dos colores) cuyo `background-position` sube al aparecer (`water-fill`).
 - **Burbujas**: `[data-bubbles="N"]` y `main.js` crea N `.bubble` con variables CSS aleatorias.
 - **Onda al pulsar**: `.press-ripple` en `.btn`, `.chip` y `.gallery-item` (delegado en `pointerdown`).
+- **Redirecciones de la web antigua**: `_redirects` con cada ruta en UTF-8 y en %-codificado (Cloudflare las compara así); destino con ancla `/#seccion`.
+- **FAQ con datos estructurados**: `details.faq-item > summary > h3`; si cambia una respuesta, cambiarla también en el `FAQPage` del `<head>`.
 - **Bloques `✏️ EDITAR`**: comentarios en `index.html` que marcan los datos que más cambian.
 - **Tabla filtrable**: `table[data-filtrable]` + filas `tr[data-tipo]` + `.chip[data-filtro]`; en móvil pasa a tarjetas con `td[data-label]`.
 - **Marcador `.completar`**: resalta en amarillo los datos pendientes.
@@ -44,6 +47,7 @@ Web estática de una sola página para el Club Natación Leganés (rediseño de 
 - **Generador de marcadores**: script Node que dibuja SVG de piscina con corcheras y etiqueta (se usó desde el scratchpad; para regenerarlos hay que reescribirlo).
 
 ## Pendiente
+- Conectar natacionleganes.com a Pages y crear/reclamar Google Business Profile y Search Console (pasos en `SEO.md`).
 - Rellenar `[COMPLETAR]`: precios, edades por categoría, cursos de adultos, ID de Formspree, NIF y registro en `legal.html`, logos de colaboradores.
 - Sustituir los SVG por fotos reales y el favicon "CNL" por el escudo del club.
 - Confirmar horarios, entrenadores y junta de la temporada actual.

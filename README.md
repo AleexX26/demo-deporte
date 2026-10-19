@@ -67,4 +67,5 @@ Si usas otro dominio, cámbialo en `index.html` (canonical, Open Graph y JSON-LD
 
 - Da de alta `https://www.natacionleganes.com/sitemap.xml` en [Google Search Console](https://search.google.com/search-console).
 - Comprueba la vista previa en redes con el [Sharing Debugger de Facebook](https://developers.facebook.com/tools/debug/).
+- Plan de SEO y marketing (Google Business Profile, Search Console, enlaces locales): ver `SEO.md`.
 - Si añades vídeo de YouTube, analítica u otro servicio externo, añade su dominio a la `Content-Security-Policy` de `_headers` y revisa la política de cookies.

@@ -15,6 +15,7 @@
     if (!header) return;
     // Transparente solo arriba del todo: en cuanto se baja, fondo sólido (evita solaparse con el hero)
     header.classList.toggle('is-scrolled', !hero || window.scrollY > 40);
+    document.body.classList.toggle('page-scrolled', window.scrollY > 300);
     // Progreso de lectura (corchera + gorro bajo la cabecera)
     var max = document.documentElement.scrollHeight - window.innerHeight;
     header.style.setProperty('--p', max > 0 ? Math.min(window.scrollY / max, 1).toFixed(4) : 0);

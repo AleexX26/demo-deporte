@@ -1,26 +1,37 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-ES">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Si el dominio no es natacionleganes.com, cámbialo aquí, en sitemap.xml y en robots.txt -->
-  <title>Club Natación Leganés · Escuela, competición y máster desde 1987</title>
-  <meta name="description" content="Club Natación Leganés: escuela de natación, matronatación, competición de prebenjamín a máster en las piscinas de El Carrascal y Olimpia (Leganés). Horarios, inscripción y contacto.">
+  <!-- ✏️ SEO. Si el dominio no es natacionleganes.com, cámbialo aquí (canonical, og:url, og:image y JSON-LD),
+       en legal.html, sitemap.xml y robots.txt. -->
+  <title>Club Natación Leganés | Escuela y clases de natación en Leganés</title>
+  <meta name="description" content="Clases de natación en Leganés desde 1987: escuela, matronatación y competición de prebenjamín a máster en las piscinas El Carrascal y Olimpia. ¡Inscríbete!">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.natacionleganes.com/">
   <meta name="theme-color" content="#0B2545">
+
+  <!-- SEO local: piscina El Carrascal (coordenadas de OpenStreetMap) -->
+  <meta name="geo.region" content="ES-MD">
+  <meta name="geo.placename" content="Leganés">
+  <meta name="geo.position" content="40.3338611;-3.7457709">
+  <meta name="ICBM" content="40.3338611, -3.7457709">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Club Natación Leganés">
-  <meta property="og:title" content="Club Natación Leganés · Escuela, competición y máster">
-  <meta property="og:description" content="Desde 1987 formando nadadores y, sobre todo, personas. Escuela, competición y máster en Leganés.">
+  <meta property="og:title" content="Club Natación Leganés · Natación en Leganés desde 1987">
+  <meta property="og:description" content="Escuela de natación, matronatación y competición de prebenjamín a máster en las piscinas El Carrascal y Olimpia de Leganés.">
   <meta property="og:url" content="https://www.natacionleganes.com/">
   <meta property="og:image" content="https://www.natacionleganes.com/assets/img/og-imagen.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Club Natación Leganés">
+  <meta property="og:image:alt" content="Club Natación Leganés: escuela, competición y máster desde 1987">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@cnleganes">
+  <meta name="twitter:title" content="Club Natación Leganés · Natación en Leganés desde 1987">
+  <meta name="twitter:description" content="Escuela de natación, matronatación y competición de prebenjamín a máster en Leganés.">
+  <meta name="twitter:image" content="https://www.natacionleganes.com/assets/img/og-imagen.png">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -29,37 +40,127 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js" defer></script>
 
+  <!-- ✏️ DATOS ESTRUCTURADOS (Google). Si cambias teléfono, horario, direcciones o las preguntas
+       frecuentes de la página, cámbialos también aquí: deben coincidir con lo que se ve. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SportsClub",
-    "name": "Club Natación Leganés",
-    "alternateName": "C.N. Leganés",
-    "url": "https://www.natacionleganes.com/",
-    "logo": "https://www.natacionleganes.com/assets/img/favicon.svg",
-    "image": "https://www.natacionleganes.com/assets/img/og-imagen.png",
-    "description": "Club de natación de Leganés fundado en 1987: escuela de natación, matronatación y equipos de competición de prebenjamín a máster.",
-    "foundingDate": "1987",
-    "sport": "Natación",
-    "telephone": "+34695824496",
-    "email": "leganesnatacion@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Avenida de Europa 6 (Piscina Municipal El Carrascal)",
-      "addressLocality": "Leganés",
-      "addressRegion": "Madrid",
-      "addressCountry": "ES"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "17:00",
-      "closes": "21:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/clubnatacionleganes",
-      "https://instagram.com/club.natacion.leganes",
-      "https://twitter.com/cnleganes"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.natacionleganes.com/#web",
+        "url": "https://www.natacionleganes.com/",
+        "name": "Club Natación Leganés",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": "https://www.natacionleganes.com/#club" }
+      },
+      {
+        "@type": "SportsClub",
+        "@id": "https://www.natacionleganes.com/#club",
+        "name": "Club Natación Leganés",
+        "alternateName": ["C.N. Leganés", "CN Leganés", "Natación Leganés"],
+        "url": "https://www.natacionleganes.com/",
+        "logo": "https://www.natacionleganes.com/assets/img/apple-touch-icon.png",
+        "image": "https://www.natacionleganes.com/assets/img/og-imagen.png",
+        "description": "Club de natación de Leganés fundado en 1987. Escuela de natación y matronatación en las piscinas El Carrascal y Olimpia, y equipos de competición de prebenjamín a máster.",
+        "foundingDate": "1987",
+        "sport": "Natación",
+        "slogan": "Formamos nadadores y, sobre todo, personas",
+        "telephone": "+34695824496",
+        "email": "leganesnatacion@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida de Europa 6, Piscina Municipal El Carrascal",
+          "postalCode": "28915",
+          "addressLocality": "Leganés",
+          "addressRegion": "Comunidad de Madrid",
+          "addressCountry": "ES"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 40.3338611, "longitude": -3.7457709 },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=Piscina+Municipal+El+Carrascal+Legan%C3%A9s",
+        "areaServed": { "@type": "City", "name": "Leganés" },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "17:00",
+          "closes": "21:00"
+        },
+        "location": [
+          {
+            "@type": "SportsActivityLocation",
+            "name": "Piscina Municipal El Carrascal",
+            "address": { "@type": "PostalAddress", "streetAddress": "Avenida de Europa 6", "postalCode": "28915", "addressLocality": "Leganés", "addressRegion": "Comunidad de Madrid", "addressCountry": "ES" },
+            "geo": { "@type": "GeoCoordinates", "latitude": 40.3338611, "longitude": -3.7457709 }
+          },
+          {
+            "@type": "SportsActivityLocation",
+            "name": "Piscina del Polideportivo Olimpia",
+            "address": { "@type": "PostalAddress", "streetAddress": "Calle del Cobre 12", "postalCode": "28914", "addressLocality": "Leganés", "addressRegion": "Comunidad de Madrid", "addressCountry": "ES" },
+            "geo": { "@type": "GeoCoordinates", "latitude": 40.3286573, "longitude": -3.7728022 }
+          }
+        ],
+        "memberOf": [
+          { "@type": "SportsOrganization", "name": "Federación Madrileña de Natación", "url": "https://federacionmadridnatacion.es/" },
+          { "@type": "SportsOrganization", "name": "Real Federación Española de Natación", "url": "https://rfen.es/" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Actividades de natación en Leganés",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Matronatación (natación para bebés)" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Escuela de natación infantil" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natación de competición: Promesas, Prebenjamín, Benjamín, Alevín, Infantil, Júnior y Absoluto" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natación máster (a partir de 20 años)" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Máster Libre (competición sin entrenamientos fijos)" } }
+          ]
+        },
+        "sameAs": [
+          "https://www.facebook.com/clubnatacionleganes",
+          "https://instagram.com/club.natacion.leganes",
+          "https://twitter.com/cnleganes"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.natacionleganes.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Dónde puedo aprender a nadar en Leganés con el Club Natación Leganés?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El Club Natación Leganés tiene una escuela de natación que imparte las clases en las piscinas municipales de El Carrascal (Avenida de Europa 6) y Olimpia (Calle del Cobre 12) de Leganés. Existen distintos grupos diferenciados por edades y varios horarios entre los que elegir." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué horarios tiene la escuela de natación?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En la piscina El Carrascal: lunes, miércoles y viernes de 17:10 a 19:10 y martes y jueves de 17:10 a 18:40. En la piscina Olimpia: de lunes a viernes de 17:10 a 19:10, sábados de 09:00 a 14:30 y de 16:10 a 19:10, y domingos de 09:00 a 14:30." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hay clases de natación para bebés en Leganés?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. El Club Natación Leganés ofrece matronatación, con la opción de uno o dos días a la semana." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo entrenar y competir en natación siendo adulto?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí. El grupo máster entrena de lunes a viernes y compite en el calendario madrileño y nacional, con nadadores a partir de los 20 años. Si no puedes venir a entrenar, con Máster Libre entrenas por tu cuenta y participas con el club en las competiciones." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué categorías compite el club?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Desde prebenjamín hasta máster: el club cuenta con equipos en todas las categorías incluidas en la normativa de la Federación Madrileña de Natación y la Real Federación Española de Natación." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo me inscribo en el Club Natación Leganés?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Rellena el formulario de inscripción de esta web o el formulario de Google del club. Rellenar el formulario no significa la inscripción automática: recibirás comunicación cuando se acepte la solicitud." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde está el club y cómo puedo contactar?",
+            "acceptedAnswer": { "@type": "Answer", "text": "El Club tiene su sede en la Piscina Municipal El Carrascal, Avenida de Europa Nº 6, Leganés, de lunes a viernes de 17:00 a 21:00. Teléfono 695 82 44 96 o 916 86 90 54 y correo leganesnatacion@gmail.com." }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -115,7 +216,7 @@
         <!-- FOTO DEL HERO: cambia hero.svg por una foto (ideal 1920×1080, .webp o .jpg < 300 KB).
              Para vídeo, sustituye la <img> por:
              <video autoplay muted loop playsinline poster="assets/img/hero.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video> -->
-        <img src="assets/img/hero.svg" alt="Calles de la piscina con corcheras" width="1920" height="1080" fetchpriority="high">
+        <img src="assets/img/hero.svg" alt="Calles de la piscina del Club Natación Leganés" width="1920" height="1080" fetchpriority="high">
         <div class="hero-light" aria-hidden="true"></div>
         <div class="bubbles" data-bubbles="18" aria-hidden="true"></div>
       </div>
@@ -187,7 +288,7 @@
     <section class="section trust" id="por-que" aria-labelledby="porque-titulo">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-num">Nadar con confianza</p>
+          <p class="section-num">Nadar con confianza en Leganés</p>
           <h2 id="porque-titulo">Por qué nadar con nosotros</h2>
           <p class="section-intro">Desde los más pequeños a los más mayores, todos formamos parte de este gran equipo.</p>
         </header>
@@ -234,8 +335,8 @@
     <section class="section" id="club" aria-labelledby="club-titulo">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-num">01 — El club</p>
-          <h2 id="club-titulo">Sobre el club</h2>
+          <p class="section-num">01 — Sobre el club</p>
+          <h2 id="club-titulo">Club de natación en Leganés desde 1987</h2>
         </header>
 
         <div class="split">
@@ -276,7 +377,7 @@
         </ul>
 
         <!-- Logros: textos de las noticias de la web actual -->
-        <div class="block reveal">
+        <div class="block reveal" id="logros">
           <h3 class="block-title">Logros</h3>
           <div class="achievements">
             <article class="achievement reveal">
@@ -350,7 +451,7 @@
         </div>
 
         <!-- ✏️ EDITAR: TROFEOS DEL CLUB (edición, fecha y enlaces de Drive) -->
-        <div class="block">
+        <div class="block" id="trofeos">
           <h3 class="block-title reveal">Trofeos del club</h3>
           <div class="trophies">
             <article class="trophy reveal">
@@ -387,20 +488,20 @@
       <div class="wave-top" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none" focusable="false"><g class="waves-layers"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></g></svg></div>
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-num">02 — Actividades</p>
-          <h2 id="actividades-titulo">¿Qué opciones tenemos para ti?</h2>
+          <p class="section-num">02 — ¿Qué opciones tenemos para ti?</p>
+          <h2 id="actividades-titulo">Clases de natación en Leganés</h2>
           <p class="section-intro">¿Te gusta nadar? ¿Tienes un/a hijo/a que quieres que se introduzca en el mundo de la natación y disfrute de este magnífico deporte junto a otros compañeros? No lo dudes y únete a nuestro Club.</p>
         </header>
 
         <!-- Escuela -->
         <div class="activity-group" id="escuela">
           <div class="group-head reveal">
-            <h3>Escuelas deportivas</h3>
+            <h3>Escuela de natación en Leganés</h3>
             <p>El Club Natación Leganés organiza a diario y los fines de semana, en las piscinas de El Carrascal y del Centro Deportivo Olimpia de Leganés, cursos para el aprendizaje de la natación. Existen distintos grupos diferenciados por edades y varios horarios entre los que elegir.</p>
           </div>
           <ul class="cards">
             <li class="card reveal">
-              <img src="assets/img/act-bebes.svg" alt="Matronatación" width="900" height="600" loading="lazy" decoding="async">
+              <img src="assets/img/act-bebes.svg" alt="Matronatación: natación para bebés en Leganés" width="900" height="600" loading="lazy" decoding="async">
               <div class="card-body">
                 <p class="card-tag">Escuela · Bebés</p>
                 <h4>Matronatación</h4>
@@ -413,7 +514,7 @@
               </div>
             </li>
             <li class="card reveal">
-              <img src="assets/img/act-escuela.svg" alt="Escuela de natación infantil" width="900" height="600" loading="lazy" decoding="async">
+              <img src="assets/img/act-escuela.svg" alt="Escuela de natación infantil en Leganés" width="900" height="600" loading="lazy" decoding="async">
               <div class="card-body">
                 <p class="card-tag">Escuela</p>
                 <h4>Escuela infantil</h4>
@@ -483,7 +584,7 @@
         <!-- Competición -->
         <div class="activity-group" id="competicion">
           <div class="group-head reveal">
-            <h3>De prebenjamín a máster</h3>
+            <h3>Natación de competición: de prebenjamín a máster</h3>
             <p>Desde los más pequeños a los mayores, como club de competición contamos con equipos en todas las categorías incluidas en la normativa de la Federación Madrileña de Natación y la Real Federación Española de Natación.</p>
           </div>
           <ul class="cards cards-compact">
@@ -571,9 +672,9 @@
         <!-- Máster -->
         <div class="activity-group master" id="master">
           <div class="master-intro reveal">
-            <img src="assets/img/act-master.svg" alt="Equipo máster entrenando" width="900" height="600" loading="lazy" decoding="async">
+            <img src="assets/img/act-master.svg" alt="Equipo de natación máster del Club Natación Leganés entrenando" width="900" height="600" loading="lazy" decoding="async">
             <div>
-              <h3>Natación máster</h3>
+              <h3>Natación máster en Leganés</h3>
               <p class="lead">¿Tienes más de 20 años y estás interesado en entrenar y competir? ¿O sólo en competir?</p>
               <p>La Federación Internacional de Natación la define como un programa que busca promover la puesta a punto física, la amistad, el entendimiento y la competición a través de la natación entre competidores a partir de los 25 años.</p>
               <p>Para nosotros es una forma de acercar la natación de competición a un grupo más amplio de gente: nadadores que llevan toda su vida compitiendo pero que, por motivos laborales, familiares, etc., ya no pueden permitirse ir a entrenar con la misma frecuencia e intensidad; nadadores que vuelven a interesarse por nadar tras un parón; nadadores que no han competido en su vida pero que sienten la necesidad de integrarse en un grupo para motivarse y mejorar su técnica y sus marcas; y triatletas que buscan mejorar en su tramo de natación.</p>
@@ -639,8 +740,8 @@
     <section class="section" id="horarios" aria-labelledby="horarios-titulo">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-num">03 — Horarios y tarifas</p>
-          <h2 id="horarios-titulo">Horarios</h2>
+          <p class="section-num">03 — Horarios y precios</p>
+          <h2 id="horarios-titulo">Horarios de natación</h2>
           <!-- ✏️ EDITAR: temporada de los horarios -->
           <p class="section-intro">Los entrenamientos del Club Natación Leganés se realizan en las piscinas de El Carrascal y Olimpia. Los horarios para la temporada 2022/2023 por categorías son los siguientes: <span class="completar">[COMPLETAR: confirmar horarios de la temporada actual]</span></p>
         </header>
@@ -756,7 +857,7 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="section-num">05 — Galería</p>
-          <h2 id="galeria-titulo">Galería</h2>
+          <h2 id="galeria-titulo">Galería del club</h2>
         </header>
         <ul class="gallery">
           <li class="reveal"><button type="button" class="gallery-item" aria-label="Ampliar foto: salida de una prueba"><img src="assets/img/galeria-1.svg" alt="Salida de una prueba" width="1200" height="1500" loading="lazy" decoding="async"></button></li>
@@ -866,13 +967,54 @@
       </div>
     </section>
 
+    <!-- ===================== PREGUNTAS FRECUENTES ===================== -->
+    <!-- ✏️ EDITAR: si cambias una respuesta, cámbiala también en el bloque FAQPage del JSON-LD del <head>. -->
+    <section class="section" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container faq-wrap">
+        <header class="section-head reveal">
+          <p class="section-num">07 — Preguntas frecuentes</p>
+          <h2 id="preguntas-titulo">Natación en Leganés: dudas habituales</h2>
+        </header>
+        <div class="faq">
+          <details class="faq-item reveal">
+            <summary><h3>¿Dónde puedo aprender a nadar en Leganés con el Club Natación Leganés?</h3></summary>
+            <p>El Club Natación Leganés tiene una escuela de natación que imparte las clases en las piscinas municipales de El Carrascal (Avenida de Europa 6) y Olimpia (Calle del Cobre 12) de Leganés. Existen distintos grupos diferenciados por edades y varios horarios entre los que elegir.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿Qué horarios tiene la escuela de natación?</h3></summary>
+            <p>En la piscina El Carrascal: lunes, miércoles y viernes de 17:10 a 19:10 y martes y jueves de 17:10 a 18:40. En la piscina Olimpia: de lunes a viernes de 17:10 a 19:10, sábados de 09:00 a 14:30 y de 16:10 a 19:10, y domingos de 09:00 a 14:30. <a href="#horarios">Ver todos los horarios</a>.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿Hay clases de natación para bebés en Leganés?</h3></summary>
+            <p>Sí. El Club Natación Leganés ofrece matronatación, con la opción de uno o dos días a la semana.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿Puedo entrenar y competir en natación siendo adulto?</h3></summary>
+            <p>Sí. El grupo máster entrena de lunes a viernes y compite en el calendario madrileño y nacional, con nadadores a partir de los 20 años. Si no puedes venir a entrenar, con Máster Libre entrenas por tu cuenta y participas con el club en las competiciones.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿En qué categorías compite el club?</h3></summary>
+            <p>Desde prebenjamín hasta máster: el club cuenta con equipos en todas las categorías incluidas en la normativa de la Federación Madrileña de Natación y la Real Federación Española de Natación.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿Cómo me inscribo en el Club Natación Leganés?</h3></summary>
+            <p>Rellena el <a href="#inscripcion">formulario de inscripción</a> de esta web o el formulario de Google del club. Rellenar el formulario no significa la inscripción automática: recibirás comunicación cuando se acepte la solicitud.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary><h3>¿Dónde está el club y cómo puedo contactar?</h3></summary>
+            <p>El Club tiene su sede en la Piscina Municipal El Carrascal, Avenida de Europa Nº 6, Leganés, de lunes a viernes de 17:00 a 21:00. Teléfono <a href="tel:+34695824496">695 82 44 96</a> o <a href="tel:+34916869054">916 86 90 54</a> y correo <a href="mailto:leganesnatacion@gmail.com">leganesnatacion@gmail.com</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== 8. CONTACTO ===================== -->
     <!-- ✏️ EDITAR: CONTACTO (teléfonos, email, sede, horario y redes). Recuerda cambiarlos también en el JSON-LD del <head>. -->
     <section class="section" id="contacto" aria-labelledby="contacto-titulo">
       <div class="container contact">
         <div class="contact-info">
           <header class="section-head reveal">
-            <p class="section-num">07 — Contacto</p>
+            <p class="section-num">08 — Contacto</p>
             <h2 id="contacto-titulo">Contacta con nosotros</h2>
           </header>
           <ul class="contact-list reveal">
@@ -924,14 +1066,28 @@
         <p>Desde 1987 formando nadadores y, sobre todo, personas.</p>
       </div>
       <nav aria-label="Pie de página">
-        <h2 class="footer-title">El club</h2>
+        <h2 class="footer-title">Natación en Leganés</h2>
         <ul>
-          <li><a href="#club">Sobre el club</a></li>
-          <li><a href="#actividades">Actividades</a></li>
+          <li><a href="#escuela">Escuela de natación en Leganés</a></li>
+          <li><a href="#escuela">Matronatación (bebés)</a></li>
+          <li><a href="#competicion">Natación de competición</a></li>
+          <li><a href="#master">Natación máster en Leganés</a></li>
           <li><a href="#horarios">Horarios y precios</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
           <li><a href="#inscripcion">Inscripción</a></li>
         </ul>
       </nav>
+      <!-- ✏️ EDITAR: NAP (nombre, dirección, teléfono). Debe ser idéntico al de Google Business Profile y redes. -->
+      <address class="footer-nap">
+        <h2 class="footer-title">Dónde estamos</h2>
+        <p><strong>Club Natación Leganés</strong><br>
+        Piscina Municipal El Carrascal<br>
+        Avenida de Europa 6, 28915 Leganés (Madrid)</p>
+        <p>Piscina Olimpia · Calle del Cobre 12, 28914 Leganés</p>
+        <p><a href="tel:+34695824496">695 82 44 96</a> · <a href="tel:+34916869054">916 86 90 54</a><br>
+        <a href="mailto:leganesnatacion@gmail.com">leganesnatacion@gmail.com</a><br>
+        Lunes a viernes, de 17:00 a 21:00</p>
+      </address>
       <div>
         <!-- ✏️ EDITAR: COLABORADORES. Cambia cada bloque por <img src="assets/img/colaboradores/logo.svg" alt="Nombre" loading="lazy"> -->
         <h2 class="footer-title">Colaboradores</h2>
@@ -951,5 +1107,11 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Barra de acción fija en móvil (llamar / inscribirse) -->
+  <div class="mobile-cta">
+    <a class="mobile-cta-call" href="tel:+34695824496">Llamar</a>
+    <a class="mobile-cta-join" href="#inscripcion">Inscríbete</a>
+  </div>
 </body>
 </html>

@@ -1,0 +1,23 @@
+# Redirecciones 301 desde las URLs de la web antigua (Google Sites) a las secciones nuevas.
+# Así se conserva el posicionamiento que ya tenían esas páginas en Google.
+/inicio                                          /                301
+/contactar                                       /#contacto       301
+/información/sobre-el-club                       /#club           301
+/informaci%C3%B3n/sobre-el-club                  /#club           301
+/información/horarios                            /#horarios       301
+/informaci%C3%B3n/horarios                       /#horarios       301
+/información/junta-directiva                     /#equipo         301
+/informaci%C3%B3n/junta-directiva                /#equipo         301
+/información/equipo-técnico                      /#equipo         301
+/informaci%C3%B3n/equipo-t%C3%A9cnico            /#equipo         301
+/información/25º-aniversario                     /#club           301
+/informaci%C3%B3n/25%C2%BA-aniversario           /#club           301
+/trofeos-del-club/trofeo-navidad                 /#trofeos        301
+/trofeos-del-club/trofeo-máster                  /#trofeos        301
+/trofeos-del-club/trofeo-m%C3%A1ster             /#trofeos        301
+/escuela                                         /#escuela        301
+/categorías/natación-máster                      /#master         301
+/categor%C3%ADas/nataci%C3%B3n-m%C3%A1ster       /#master         301
+/otros/pautas-padres-jóvenes-deportistas         /#escuela        301
+/otros/pautas-padres-j%C3%B3venes-deportistas    /#escuela        301
+/noticias/*                                      /#logros         301

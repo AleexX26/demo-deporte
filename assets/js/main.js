@@ -9,14 +9,22 @@
   /* ---------- Cabecera: fondo sólido al hacer scroll ---------- */
   var header = document.getElementById('cabecera');
   var hero = document.getElementById('inicio');
+  var ticking = false;
   function updateHeader() {
+    ticking = false;
     if (!header) return;
-    var limit = hero ? hero.offsetHeight - header.offsetHeight - 40 : 0;
-    header.classList.toggle('is-scrolled', !hero || window.scrollY > Math.max(limit, 40));
+    // Transparente solo arriba del todo: en cuanto se baja, fondo sólido (evita solaparse con el hero)
+    header.classList.toggle('is-scrolled', !hero || window.scrollY > 40);
+    // Progreso de lectura (corchera + gorro bajo la cabecera)
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    header.style.setProperty('--p', max > 0 ? Math.min(window.scrollY / max, 1).toFixed(4) : 0);
+  }
+  function requestHeader() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(updateHeader); }
   }
   updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  window.addEventListener('resize', updateHeader);
+  window.addEventListener('scroll', requestHeader, { passive: true });
+  window.addEventListener('resize', requestHeader);
 
   /* ---------- Menú hamburguesa ---------- */
   var toggle = document.querySelector('.nav-toggle');
@@ -254,6 +262,101 @@
       map.querySelector('.map-placeholder').hidden = true;
       iframe.focus();
     });
+  }
+
+  /* =========================================================
+     EFECTOS DE AGUA (no se activan con "reducir movimiento")
+     ========================================================= */
+  if (!reduceMotion) {
+    /* Burbujas: [data-bubbles="N"] crea N burbujas con tamaño y ritmo aleatorios */
+    document.querySelectorAll('[data-bubbles]').forEach(function (box) {
+      var n = parseInt(box.getAttribute('data-bubbles'), 10) || 12;
+      if (window.innerWidth < 720) n = Math.ceil(n * 0.6);
+      for (var i = 0; i < n; i++) {
+        var b = document.createElement('span');
+        b.className = 'bubble';
+        b.style.setProperty('--x', (Math.random() * 100).toFixed(1) + '%');
+        b.style.setProperty('--s', (6 + Math.random() * 22).toFixed(0) + 'px');
+        b.style.setProperty('--dur', (9 + Math.random() * 10).toFixed(1) + 's');
+        b.style.setProperty('--delay', (-Math.random() * 18).toFixed(1) + 's');
+        b.style.setProperty('--drift', ((Math.random() - 0.5) * 80).toFixed(0) + 'px');
+        box.appendChild(b);
+      }
+    });
+
+    /* Ondas en el hero al mover el ratón o tocar la pantalla */
+    var ripples = document.querySelector('.ripples');
+    if (hero && ripples) {
+      var last = 0;
+      var spawn = function (e) {
+        if (ripples.childElementCount > 14) return;
+        var r = hero.getBoundingClientRect();
+        var dot = document.createElement('span');
+        dot.className = 'ripple';
+        dot.style.left = (e.clientX - r.left) + 'px';
+        dot.style.top = (e.clientY - r.top) + 'px';
+        dot.addEventListener('animationend', function () { dot.remove(); });
+        ripples.appendChild(dot);
+      };
+      hero.addEventListener('pointerdown', spawn);
+      if (window.matchMedia('(pointer: fine)').matches) {
+        hero.addEventListener('pointermove', function (e) {
+          var now = performance.now();
+          if (now - last > 140) { last = now; spawn(e); }
+        });
+      }
+    }
+
+    /* Onda al pulsar botones, filtros y fotos */
+    document.addEventListener('pointerdown', function (e) {
+      var el = e.target.closest('.btn, .chip, .gallery-item');
+      if (!el) return;
+      var r = el.getBoundingClientRect();
+      var drop = document.createElement('span');
+      drop.className = 'press-ripple';
+      drop.style.left = (e.clientX - r.left) + 'px';
+      drop.style.top = (e.clientY - r.top) + 'px';
+      drop.addEventListener('animationend', function () { drop.remove(); });
+      el.appendChild(drop);
+    });
+
+    /* Pausar las animaciones infinitas cuando no se ven */
+    if ('IntersectionObserver' in window) {
+      var zones = document.querySelectorAll('.hero, .marquee, .section-dark, .wave-top');
+      var pauser = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { entry.target.classList.toggle('is-paused', !entry.isIntersecting); });
+      });
+      zones.forEach(function (z) { pauser.observe(z); });
+    }
+  }
+
+  /* ---------- Contadores de la banda de cifras ---------- */
+  var counters = document.querySelectorAll('[data-count]');
+  counters.forEach(function (el) {
+    var desde = parseInt(el.getAttribute('data-desde'), 10);
+    var target = desde ? new Date().getFullYear() - desde : parseInt(el.getAttribute('data-count'), 10);
+    el.setAttribute('data-count', target);
+    el.textContent = target;
+  });
+  if (!reduceMotion && 'IntersectionObserver' in window && counters.length) {
+    var countUp = function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var start = performance.now();
+      var dur = 1400;
+      (function frame(now) {
+        var t = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) window.requestAnimationFrame(frame);
+      })(start);
+    };
+    var counterIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target);
+        counterIO.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { el.textContent = '0'; counterIO.observe(el); });
   }
 
   /* ---------- Año del pie ---------- */

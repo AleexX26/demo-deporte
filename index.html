@@ -67,6 +67,13 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+  <!-- Ola reutilizable (hero, separadores de sección y pie) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="ola" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+    </defs>
+  </svg>
+
   <!-- ===================== CABECERA ===================== -->
   <header class="site-header" id="cabecera">
     <div class="header-inner">
@@ -93,6 +100,11 @@
         <a class="btn btn-accent nav-cta" href="#inscripcion">Inscríbete</a>
       </nav>
     </div>
+    <!-- Progreso de lectura: una corchera que se completa y un gorro que avanza por la calle -->
+    <div class="scroll-lane" aria-hidden="true">
+      <span class="scroll-lane-rope"></span>
+      <span class="scroll-lane-cap"></span>
+    </div>
   </header>
 
   <main id="contenido">
@@ -104,13 +116,19 @@
              Para vídeo, sustituye la <img> por:
              <video autoplay muted loop playsinline poster="assets/img/hero.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video> -->
         <img src="assets/img/hero.svg" alt="Calles de la piscina con corcheras" width="1920" height="1080" fetchpriority="high">
+        <div class="hero-light" aria-hidden="true"></div>
+        <div class="bubbles" data-bubbles="18" aria-hidden="true"></div>
       </div>
+      <div class="ripples" aria-hidden="true"></div>
       <div class="hero-content container">
         <p class="eyebrow">Desde 1987 · Leganés</p>
         <h1 id="hero-titulo" class="hero-title">
           <span>Club</span>
           <span>Natación</span>
           <span class="text-accent">Leganés</span>
+          <svg class="hero-squiggle" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path pathLength="100" d="M3 7c18-5 32-5 50 0s32 5 50 0 32-5 50 0 32 5 50 0 32-5 50 0 32 5 44 1"/>
+          </svg>
         </h1>
         <p class="hero-lead">Competiciones desde prebenjamines hasta masters y escuelas deportivas en las piscinas de El Carrascal y Olimpia.</p>
         <div class="hero-actions">
@@ -127,16 +145,89 @@
           <li><a href="#contacto"><span class="ql-num">04</span>Contacto</a></li>
         </ul>
       </nav>
+
+      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <g class="waves-layers">
+          <use href="#ola" x="48" y="0"/>
+          <use href="#ola" x="48" y="3"/>
+          <use href="#ola" x="48" y="5"/>
+          <use href="#ola" x="48" y="7"/>
+        </g>
+      </svg>
     </section>
 
-    <!-- Banda de cifras (datos de la web actual) -->
+    <!-- Banda de cifras (datos de la web actual). Los números se animan al aparecer;
+         "años" se calcula solo a partir de 1987. -->
     <section class="stats" aria-label="El club en cifras">
       <ul class="container stats-grid">
-        <li class="reveal"><strong>1987</strong><span>Año de fundación</span></li>
-        <li class="reveal"><strong>Prebenjamín → Máster</strong><span>Equipos en todas las categorías</span></li>
-        <li class="reveal"><strong>2 piscinas</strong><span>El Carrascal y Olimpia</span></li>
+        <li class="reveal"><strong><span data-count="39" data-desde="1987">39</span> años</strong><span>Formando nadadores desde 1987</span></li>
+        <li class="reveal"><strong><span data-count="13">13</span> medallas</strong><span>XXX Cto. de España Máster de Invierno</span></li>
+        <li class="reveal"><strong><span data-count="2">2</span> piscinas</strong><span>El Carrascal y Olimpia</span></li>
         <li class="reveal"><strong>División de Honor</strong><span>Equipo femenino 2025-2026</span></li>
       </ul>
+    </section>
+
+    <!-- Marquesina decorativa -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Nada con nosotros</span><span class="marquee-wave"></span>
+        <span>Escuela</span><span class="marquee-wave"></span>
+        <span>Competición</span><span class="marquee-wave"></span>
+        <span>Máster</span><span class="marquee-wave"></span>
+        <span>Desde 1987</span><span class="marquee-wave"></span>
+        <span>Nada con nosotros</span><span class="marquee-wave"></span>
+        <span>Escuela</span><span class="marquee-wave"></span>
+        <span>Competición</span><span class="marquee-wave"></span>
+        <span>Máster</span><span class="marquee-wave"></span>
+        <span>Desde 1987</span><span class="marquee-wave"></span>
+      </div>
+    </div>
+
+    <!-- ===================== POR QUÉ NOSOTROS (confianza) ===================== -->
+    <section class="section trust" id="por-que" aria-labelledby="porque-titulo">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-num">Nadar con confianza</p>
+          <h2 id="porque-titulo">Por qué nadar con nosotros</h2>
+          <p class="section-intro">Desde los más pequeños a los más mayores, todos formamos parte de este gran equipo.</p>
+        </header>
+        <ul class="trust-grid">
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M7 30a17 15 0 0 1 34 0z"/><circle cx="17" cy="33" r="4.5"/><circle cx="31" cy="33" r="4.5"/><path d="M21.5 33h5M7 33h5.5M35.5 33H41"/></svg>
+            <h3>Desde 1987</h3>
+            <p>Nacimos para convertirnos en un club en el que se formaran nadadores y, sobre todo, personas.</p>
+          </li>
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 27V18M20 6h8M24 6v6M36 13l3-3"/></svg>
+            <h3>Un entrenador por grupo</h3>
+            <p>El equipo técnico dirige cada categoría, de Promesas y Prebenjamín hasta Júnior, Absoluto y Máster.</p>
+          </li>
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 36V12a5 5 0 0 1 10 0M28 36V12a5 5 0 0 1 10 0M14 20h14M14 28h14"/><path d="M4 40c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 8 3 4-3 8-3"/></svg>
+            <h3>Piscinas municipales</h3>
+            <p>Gracias a la colaboración del Ayuntamiento de Leganés entrenamos en El Carrascal y Olimpia.</p>
+          </li>
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="12" cy="20" r="4"/><circle cx="24" cy="15" r="5.5"/><circle cx="36" cy="20" r="4"/><path d="M5 36a7 7 0 0 1 14 0M15 36a9 9 0 0 1 18 0M29 36a7 7 0 0 1 14 0"/></svg>
+            <h3>Grupos por edad</h3>
+            <p>Existen distintos grupos diferenciados por edades y varios horarios entre los que elegir.</p>
+          </li>
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M16 4l6 14M32 4l-6 14"/><circle cx="24" cy="30" r="12"/><path d="M24 24l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6z"/></svg>
+            <h3>Competición federada</h3>
+            <p>Equipos en todas las categorías de la Federación Madrileña y la Real Federación Española de Natación.</p>
+          </li>
+          <li class="trust-item reveal">
+            <svg class="icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 40S7 30 7 18a8.5 8.5 0 0 1 17-2 8.5 8.5 0 0 1 17 2c0 12-17 22-17 22z"/><path d="M13 22c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></svg>
+            <h3>Familias en el equipo</h3>
+            <p>Compartimos con las familias pautas para acompañar a los jóvenes deportistas: acompañar sin empujar.</p>
+          </li>
+        </ul>
+        <div class="trust-cta reveal">
+          <a class="btn btn-accent btn-lg" href="#inscripcion">Inscríbete</a>
+          <a class="trust-phone" href="tel:+34695824496"><span>¿Dudas? Llámanos</span> 695 82 44 96</a>
+        </div>
+      </div>
     </section>
 
     <!-- ===================== 2. EL CLUB ===================== -->
@@ -293,6 +384,7 @@
     <!-- ✏️ EDITAR: ACTIVIDADES. Cada tarjeta tiene Edad / Días / Precio.
          Los precios se repiten en la tabla de tarifas (sección Horarios): cámbialos en ambos sitios. -->
     <section class="section section-alt" id="actividades" aria-labelledby="actividades-titulo">
+      <div class="wave-top" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none" focusable="false"><g class="waves-layers"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></g></svg></div>
       <div class="container">
         <header class="section-head reveal">
           <p class="section-num">02 — Actividades</p>
@@ -624,6 +716,8 @@
     <!-- ✏️ EDITAR: EQUIPO TÉCNICO Y JUNTA. Para poner foto, cambia <span class="avatar">XX</span>
          por <img class="avatar" src="assets/img/equipo/nombre.webp" alt="Nombre" width="160" height="160" loading="lazy"> -->
     <section class="section section-dark" id="equipo" aria-labelledby="equipo-titulo">
+      <div class="wave-top" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none" focusable="false"><g class="waves-layers"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></g></svg></div>
+      <div class="bubbles" data-bubbles="10" aria-hidden="true"></div>
       <div class="container">
         <header class="section-head reveal">
           <p class="section-num">04 — Equipo</p>
@@ -687,6 +781,7 @@
 
     <!-- ===================== 7. INSCRIPCIÓN ===================== -->
     <section class="section section-alt" id="inscripcion" aria-labelledby="inscripcion-titulo">
+      <div class="wave-top" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none" focusable="false"><g class="waves-layers"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></g></svg></div>
       <div class="container signup">
         <div class="signup-text reveal">
           <p class="section-num">06 — Inscripción</p>
@@ -818,6 +913,7 @@
 
   <!-- ===================== 9. PIE ===================== -->
   <footer class="site-footer">
+    <div class="wave-top" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none" focusable="false"><g class="waves-layers"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></g></svg></div>
     <div class="lane-rope" aria-hidden="true"></div>
     <div class="container footer-grid">
       <div class="footer-brand">
